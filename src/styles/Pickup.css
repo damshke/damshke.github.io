@@ -1,0 +1,11 @@
+.container {
+    display: grid;
+    background-color: #FFFFFF;
+    padding: 50px;
+}
+
+.container .map {
+    width: 500px;
+    height: 500px;
+    background: gray;
+}

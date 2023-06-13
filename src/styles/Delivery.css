@@ -1,0 +1,77 @@
+.container {
+    display: grid;
+    background-color: #FFFFFF;
+    padding: 50px;
+    width: 800px;
+}
+
+.section {
+    display: flex;
+    margin: 0 -24px;
+}
+
+.section div {
+    display: flex;
+    flex-direction: column;
+    margin: 0 24px;
+}
+
+.container label {
+    font-size: 12px;
+    margin-bottom: 10px;
+}
+
+.container input[type="text"] {
+    font-size: 16px;
+    font-weight: 400;
+    padding: 5px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    border: 1px solid #999999;
+    align-items: center;
+    height: 48px;
+}
+
+input[name="comment"] {
+    font-size: 16px;
+    font-weight: 400;
+    padding: 5px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    border: 1px solid #999999;
+    height: 112px;
+}
+
+input[type="text"]:focus {
+    border: 1px solid #222222;
+}
+
+.enter {
+    background-color: #215BF0;
+    border-radius: 80px;
+    width: 200px;
+    height: 48px;
+    color: #FFFFFF;
+    margin-top: 24px;
+    position: sticky;
+    left: 100%;
+    border: none;
+    box-shadow: none;
+}
+
+.enter:hover {
+    background-color: #0F41C4;
+}
+
+.enter-disabled {
+    background-color: #EDEEEF;
+    border-radius: 80px;
+    width: 200px;
+    height: 48px;
+    color: #999999;
+    margin-top: 24px;
+    position: sticky;
+    left: 100%;
+    border: none;
+    box-shadow: none;
+}

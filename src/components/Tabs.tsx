@@ -1,27 +1,41 @@
-interface TabProps {
-    label: string;
-    selected: boolean;
-    onClick: () => void;
-  }
-  
-  const Tab: React.FC<TabProps> = ({ label, selected, onClick }) => (
-    <button onClick={onClick} className={selected ? 'active' : ''}>
-      {label}
-    </button>
-  );
+import * as React from 'react';
+import { useState } from 'react';
+import Pickup from './Pickup';
+import Delivery from './Delivery';
+import '../styles/Tabs.css'
 
-  return (
-    <div>
-      <Tab
-        label="Delivery"
-        selected={activeTab === 'delivery'}
-        onClick={() => setActiveTab('delivery')}
-      />
-      <Tab
-        label="Pickup"
-        selected={activeTab === 'pickup'}
-        onClick={() => setActiveTab('pickup')}
-      />
-      {activeTab === 'delivery' ? <DeliveryTab /> : <PickupTab />}
-    </div>
-  );
+enum Tab {
+    Delivery = 'Доставка',
+    Pickup = 'Самовывоз'
+}
+
+const Tabs: React.FC = () => {
+
+    const [activeTab, setActiveTab] = useState<Tab>(Tab.Delivery);
+
+    const handleTabClick = (tab: Tab) => {
+        setActiveTab(tab);
+    }
+
+    const points = ['Point A', 'Point B', 'Point C'];
+
+    return (
+        <div>
+            <h1>Выберите способ доставки</h1>
+            <button onClick={() => handleTabClick(Tab.Delivery)} className={activeTab === Tab.Delivery ? 'active' : 'non-active'}>Доставка</button>
+            <button onClick={() => handleTabClick(Tab.Pickup)} className={activeTab === Tab.Pickup ? 'active' : 'non-active'}>Самовывоз</button>
+
+            {activeTab === Tab.Delivery && (
+                <Delivery />
+            )}
+
+            {activeTab === Tab.Pickup && (
+                <Pickup points={points} />
+            )}
+
+        </div>
+
+    );
+};
+
+export default Tabs;

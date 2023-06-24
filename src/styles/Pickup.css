@@ -1,11 +1,29 @@
-.container {
-    display: grid;
-    background-color: #FFFFFF;
-    padding: 50px;
-}
 
-.container .map {
-    width: 500px;
-    height: 500px;
-    background: gray;
-}
+/* to do:
+    расширить карту на всь контейнер;
+    расположить кнопки в соответствии с макетом;
+     */
+
+.container {
+    display: flex;
+    align-items: center;
+    padding: 50px;
+    min-width: 320px;
+    overflow-x: hidden;
+  }
+  
+  .map-container {
+    align-items: center;
+    width: 100%; /* Updated width to occupy entire container */
+    height: 100%; /* Updated height to occupy entire container */
+  }
+  
+  .radio-label {
+    display: flex;
+    align-items: center;
+  }
+  
+  .radio-label:focus-within {
+    color: #215BF0;
+  }
+  

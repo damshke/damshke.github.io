@@ -21,3 +21,19 @@
     border: none;
     box-shadow: none;
 }
+
+.tabs-container {
+    min-width: 320px;
+    overflow-x: hidden;
+    gap: 8px;
+    display: flex;
+}
+
+@media (min-width: 1200px) {
+    .tabs-container {
+        display: flex;
+        justify-content: center;
+        gap: 8px;
+        display: flex;
+    }
+}

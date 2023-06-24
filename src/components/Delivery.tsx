@@ -27,7 +27,7 @@ const Delivery: React.FC = () => {
     const [commentError, setCommentError] = useState('');
 
 
-    // ддоделать валидацию (стили)
+    // доделать валидацию (стили)
     const handleInitialsChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const value = event.target.value;
         setInitials(value);
@@ -98,7 +98,8 @@ const Delivery: React.FC = () => {
                         name="initials"
                         placeholder='Только кириллица'
                         value={initials}
-                        onChange={handleInitialsChange} />
+                        onChange={handleInitialsChange}
+                    />
                     {initialsValid ? null : <span className="error">{initialsError}</span>}
                 </div>
                 <div>
@@ -120,6 +121,7 @@ const Delivery: React.FC = () => {
                 value={address}
                 onChange={handleAddressChange} />
             {addressValid ? null : <span className="error">{addressError}</span>}
+            {/* переделать поле комментария, чтобы ввод был с верхнего левого угла */}
             <label>Комментарий</label>
             <input
                 type="text"

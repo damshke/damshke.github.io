@@ -1,8 +1,16 @@
+/* to do:
+    исправить шрифты;
+    исправить отступы внутри полей справа;
+    добавить адаптив; */
+
 .container {
     display: grid;
     background-color: #FFFFFF;
     padding: 50px;
-    width: 800px;
+    width: 1000px;
+    min-width: 320px;
+    overflow-x: hidden;
+    grid-row: inherit;
 }
 
 .section {
@@ -21,7 +29,29 @@
     margin-bottom: 10px;
 }
 
-.container input[type="text"] {
+.container input[name="comment"] {
+    font-size: 16px;
+    font-weight: 400;
+    padding: 5px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    border: 1px solid #999999;
+    height: 112px;
+    width: 952px;
+}
+
+.container input[name="address"] {
+    font-size: 16px;
+    font-weight: 400;
+    padding: 5px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    border: 1px solid #999999;
+    height: 48px;
+    width: 952px;
+}
+
+.container input[name="phone"] {
     font-size: 16px;
     font-weight: 400;
     padding: 5px;
@@ -30,17 +60,21 @@
     border: 1px solid #999999;
     align-items: center;
     height: 48px;
+    width: 448px;
 }
 
-input[name="comment"] {
+.container input[name="initials"] {
     font-size: 16px;
     font-weight: 400;
     padding: 5px;
     margin-bottom: 10px;
     border-radius: 4px;
     border: 1px solid #999999;
-    height: 112px;
+    align-items: center;
+    height: 48px;
+    width: 448px;
 }
+
 
 input[type="text"]:focus {
     border: 1px solid #222222;
@@ -54,7 +88,7 @@ input[type="text"]:focus {
     color: #FFFFFF;
     margin-top: 24px;
     position: sticky;
-    left: 100%;
+    left: 77%;
     border: none;
     box-shadow: none;
 }
@@ -71,7 +105,14 @@ input[type="text"]:focus {
     color: #999999;
     margin-top: 24px;
     position: sticky;
-    left: 100%;
+    left: 77%;
     border: none;
     box-shadow: none;
+}
+
+.error {
+    color: red;
+    font-size: 12px;
+    margin-top: -8px;
+    margin-bottom: 8px;
 }

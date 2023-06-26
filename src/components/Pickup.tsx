@@ -42,7 +42,7 @@ const Pickup: React.FC<PickupProps> = ({ points }) => {
   };
 
   return (
-    <div className="container">
+    <div>
       <div className="radio">
         {points.map((point) => (
           <label key={point} className="radio-label">

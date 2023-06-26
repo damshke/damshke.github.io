@@ -1,9 +1,4 @@
-
-/* to do:
-    расширить карту на всь контейнер;
-    расположить кнопки в соответствии с макетом;
-     */
-
+/* 
 .container {
     display: flex;
     align-items: center;
@@ -14,8 +9,8 @@
   
   .map-container {
     align-items: center;
-    width: 100%; /* Updated width to occupy entire container */
-    height: 100%; /* Updated height to occupy entire container */
+    width: 100%; 
+    height: 100%; 
   }
   
   .radio-label {
@@ -26,4 +21,4 @@
   .radio-label:focus-within {
     color: #215BF0;
   }
-  
+   */

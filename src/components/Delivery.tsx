@@ -89,7 +89,7 @@ const Delivery: React.FC = () => {
     };
 
     return (
-        <div className="container">
+        <form>
             <div className="section">
                 <div>
                     <label>ФИО</label>
@@ -113,24 +113,27 @@ const Delivery: React.FC = () => {
                     {phoneValid ? null : <span className="error">{phoneError}</span>}
                 </div>
             </div>
-            <label>Адрес доставки</label>
-            <input
-                type="text"
-                name="address"
-                placeholder='Город, улица, дом'
-                value={address}
-                onChange={handleAddressChange} />
-            {addressValid ? null : <span className="error">{addressError}</span>}
-            {/* переделать поле комментария, чтобы ввод был с верхнего левого угла */}
-            <label>Комментарий</label>
-            <input
-                type="text"
-                name="comment"
-                value={comment}
-                onChange={handleCommentChange} />
-            {commentValid ? null : <span className="error">{commentError}</span>}
+            <div>
+                <label>Адрес доставки</label>
+                <input
+                    type="text"
+                    name="address"
+                    placeholder='Город, улица, дом'
+                    value={address}
+                    onChange={handleAddressChange} />
+                {addressValid ? null : <span className="error">{addressError}</span>}
+            </div>
+            <div>
+                <label>Комментарий</label>
+                <input
+                    type="text"
+                    name="comment"
+                    value={comment}
+                    onChange={handleCommentChange} />
+                {commentValid ? null : <span className="error">{commentError}</span>}
+            </div>
             <button className={initials === '' || phone === '' || address === '' || comment === '' ? 'enter-disabled' : 'enter'} onClick={handleSubmit}>Оформить заказ</button>
-        </div >
+        </form >
     );
 };
 

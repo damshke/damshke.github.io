@@ -20,12 +20,15 @@ const Tabs: React.FC = () => {
     const points = ['Point A', 'Point B', 'Point C'];
 
     return (
-        <div className='tabs-container'>
-            <div>
-                <h1>Выберите способ доставки</h1>
+        <div>
+            <h1>Выберите способ доставки</h1>
+
+            <div className='tabs'>
                 <button onClick={() => handleTabClick(Tab.Delivery)} className={activeTab === Tab.Delivery ? 'active' : 'non-active'}>Доставка</button>
                 <button onClick={() => handleTabClick(Tab.Pickup)} className={activeTab === Tab.Pickup ? 'active' : 'non-active'}>Самовывоз</button>
+            </div>
 
+            <div className='container'>
                 {activeTab === Tab.Delivery && (
                     <Delivery />
                 )}
@@ -33,7 +36,6 @@ const Tabs: React.FC = () => {
                 {activeTab === Tab.Pickup && (
                     <Pickup points={points} />
                 )}
-
             </div>
         </div>
 

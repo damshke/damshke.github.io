@@ -35,10 +35,9 @@
 }
 
 /* @media (min-width: 1200px) {
-    .tabs {
+    div {
         display: flex;
         justify-content: center;
-        gap: 8px;
         display: flex;
     }
 } */

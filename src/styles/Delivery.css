@@ -10,59 +10,33 @@ form .section {
     margin: 0 24px;
 }
 
-
-form div label {
+label {
     font-size: 12px;
-    margin-bottom: 10px;
 }
 
-
-input[name="address"] {
-    font-size: 16px;
-    font-weight: 400;
-    padding: 5px;
-    margin-bottom: 10px;
-    border-radius: 4px;
-    border: 1px solid #999999;
-    height: 48px;
-    width: 952px;
+input[type="text"].address,
+input[type="text"].comment,
+input[type="text"].phone,
+input[type="text"].initials {
+  font-size: 16px;
+  font-weight: 400;
+  padding: 5px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  border-radius: 4px;
+  border: 1px solid #999999;
+  height: 48px;
+  width: 100%;
 }
 
-input[name="comment"] {
-    font-size: 16px;
-    font-weight: 400;
-    padding: 5px;
-    margin-bottom: 10px;
-    border-radius: 4px;
-    border: 1px solid #999999;
-    height: 48px;
-    width: 952px;
+input[type="text"].phone,
+input[type="text"].initials {
+  width: 448px;
 }
 
-input[name="phone"] {
-    font-size: 16px;
-    font-weight: 400;
-    padding: 5px;
-    margin-bottom: 10px;
-    border-radius: 4px;
-    border: 1px solid #999999;
-    align-items: center;
-    height: 48px;
-    width: 448px;
+input[type="text"].comment {
+    height: 160px;
 }
-
-input[name="initials"] {
-    font-size: 16px;
-    font-weight: 400;
-    padding: 5px;
-    margin-bottom: 10px;
-    border-radius: 4px;
-    border: 1px solid #999999;
-    align-items: center;
-    height: 48px;
-    width: 448px;
-}
-
 
 input[type="text"]:focus {
     border: 1px solid #222222;

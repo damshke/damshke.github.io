@@ -95,7 +95,7 @@ const Delivery: React.FC = () => {
                     <label>ФИО</label>
                     <input
                         type="text"
-                        name="initials"
+                        className="initials"
                         placeholder='Только кириллица'
                         value={initials}
                         onChange={handleInitialsChange}
@@ -106,7 +106,7 @@ const Delivery: React.FC = () => {
                     <label>Телефон</label>
                     <input
                         type="text"
-                        name="phone"
+                        className="phone"
                         placeholder='+7 (___) ___-__-__'
                         value={phone}
                         onChange={handlePhoneChange} />
@@ -117,7 +117,7 @@ const Delivery: React.FC = () => {
                 <label>Адрес доставки</label>
                 <input
                     type="text"
-                    name="address"
+                    className="address"
                     placeholder='Город, улица, дом'
                     value={address}
                     onChange={handleAddressChange} />
@@ -127,7 +127,7 @@ const Delivery: React.FC = () => {
                 <label>Комментарий</label>
                 <input
                     type="text"
-                    name="comment"
+                    className="comment"
                     value={comment}
                     onChange={handleCommentChange} />
                 {commentValid ? null : <span className="error">{commentError}</span>}

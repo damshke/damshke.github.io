@@ -2,6 +2,11 @@ import * as React from 'react';
 import { useState } from 'react';
 import '../styles/Delivery.css'
 
+// to do: 
+// кастомизация сообщения об ошибке 
+// правильная маска ввода телефона
+// адаптив
+
 interface Delivery {
     initials: string;
     phone: string;

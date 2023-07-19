@@ -1,9 +1,21 @@
 .radio-label {
-  display: flex;
-  align-items: center;
+  font-size: 16px;
+  font-weight: 400;
   cursor: pointer;
+  margin-right: 16px; 
+  margin-bottom: 16px;
 }
 
 .radio-label.selected {
   color: #215BF0;
+}
+
+.radio-label {
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.radio-buttons {
+  display: flex;
+  flex-wrap: wrap;
 }

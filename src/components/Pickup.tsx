@@ -6,6 +6,7 @@ import { YMaps, Map, Placemark } from '@pbe/react-yandex-maps';
 // to do:
 // предусмотреть любое количество меток
 // убрать скролл на тач устройствах
+// выровнять радиокнопки
 
 interface PickupProps {
   points: string[];

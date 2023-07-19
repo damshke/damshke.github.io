@@ -17,16 +17,16 @@ const Tabs: React.FC = () => {
         setActiveTab(tab);
     }
 
-    const points = ['Point A', 'Point B', 'Point C'];
+    const points = ['Пункт выдачи заказов к317Ас1', 'Пункт выдачи заказов к331'];
 
     return (
         <div>
             <h1>Выберите способ доставки</h1>
 
-            <div className='tabs'>
+            <nav>
                 <button onClick={() => handleTabClick(Tab.Delivery)} className={activeTab === Tab.Delivery ? 'active' : 'non-active'}>Доставка</button>
                 <button onClick={() => handleTabClick(Tab.Pickup)} className={activeTab === Tab.Pickup ? 'active' : 'non-active'}>Самовывоз</button>
-            </div>
+            </nav>
 
             <div className='container'>
                 {activeTab === Tab.Delivery && (

@@ -4,8 +4,6 @@ import '../styles/Pickup.css';
 import { YMaps, Map, Placemark } from '@pbe/react-yandex-maps';
 
 // to do:
-// переместить метки в Зеленоград
-// сделать несколько меток
 // предусмотреть любое количество меток
 // убрать скролл на тач устройствах
 
@@ -38,12 +36,21 @@ const Pickup: React.FC<PickupProps> = ({ points }) => {
       </div>
       <div>
         <YMaps>
-          <Map defaultState={{ center: [55.75, 37.57], zoom: 9 }} options={{ suppressMapOpenBlock: true }} height="560px" width="952px">
+          <Map defaultState={{ center: [55.997, 37.216], zoom: 15 }} options={{ suppressMapOpenBlock: true }} height="560px" width="952px">
             <Placemark
-              geometry={[55.75, 37.57]}
+              geometry={[55.997035, 37.216751]}
               options={{
                 iconLayout: 'default#image',
-                iconImageHref: 'https://raw.githubusercontent.com/damshke/test_task_greensight/main/public/placemark.png?token=GHSAT0AAAAAACFHMI4K4LORI6OMX5AZIOXAZFWJE6A',
+                iconImageHref: 'https://ltdfoto.ru/images/2023/07/19/placemark.png',
+                iconImageSize: [33.33, 40],
+                iconImageOffset: [-33.33 / 2, -40 / 2],
+              }}
+            />
+            <Placemark
+              geometry={[55.995831, 37.220695]}
+              options={{
+                iconLayout: 'default#image',
+                iconImageHref: 'https://ltdfoto.ru/images/2023/07/19/placemark.png',
                 iconImageSize: [33.33, 40],
                 iconImageOffset: [-33.33 / 2, -40 / 2],
               }}

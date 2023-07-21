@@ -4,7 +4,6 @@ import '../styles/Delivery.css'
 
 // to do: 
 // кастомизация сообщения об ошибке 
-// правильная маска ввода телефона
 // адаптив
 
 interface Delivery {
@@ -32,7 +31,6 @@ const Delivery: React.FC = () => {
     const [commentError, setCommentError] = useState('');
 
 
-    // доделать валидацию (стили)
     const handleInitialsChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const value = event.target.value;
         setInitials(value);
@@ -40,17 +38,17 @@ const Delivery: React.FC = () => {
         const regex = /^[а-яА-Я\s-]+$/;
         const isValid = regex.test(value);
         setInitialsValid(isValid);
-        setInitialsError(isValid ? '' : 'В поле "ФИО" допустимы только кириллица, пробел и тире.')
+        setInitialsError(isValid ? '' : 'В поле "ФИО" допустимы только кириллица, пробел и тире')
     };
 
     const handlePhoneChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const value = event.target.value;
         setPhone(value);
 
-        const regex = /^\d+$/;
+        const regex = /^(\+7|7|8)?[\s\-]?\(?[489][0-9]{2}\)?[\s\-]?[0-9]{3}[\s\-]?[0-9]{2}[\s\-]?[0-9]{2}$/ ;
         const isValid = regex.test(value);
         setPhoneValid(isValid);
-        setPhoneError(isValid ? '' : 'Введите корректный номер телефона.')
+        setPhoneError(isValid ? '' : 'Введите корректный номер телефона')
     };
 
     const handleAddressChange = (event: React.ChangeEvent<HTMLInputElement>) => {

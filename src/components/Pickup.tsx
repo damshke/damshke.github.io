@@ -6,7 +6,6 @@ import { YMaps, Map, Placemark } from '@pbe/react-yandex-maps';
 // to do:
 // предусмотреть любое количество меток
 // убрать скролл на тач устройствах
-// выровнять радиокнопки
 
 interface PickupProps {
   points: string[];
@@ -42,7 +41,7 @@ const Pickup: React.FC<PickupProps> = ({ points }) => {
               geometry={[55.997035, 37.216751]}
               options={{
                 iconLayout: 'default#image',
-                iconImageHref: 'https://ltdfoto.ru/images/2023/07/19/placemark.png',
+                iconImageHref: 'https://ltdfoto.ru/images/2023/07/21/placemark.png',
                 iconImageSize: [33.33, 40],
                 iconImageOffset: [-33.33 / 2, -40 / 2],
               }}
@@ -51,7 +50,7 @@ const Pickup: React.FC<PickupProps> = ({ points }) => {
               geometry={[55.995831, 37.220695]}
               options={{
                 iconLayout: 'default#image',
-                iconImageHref: 'https://ltdfoto.ru/images/2023/07/19/placemark.png',
+                iconImageHref: 'https://ltdfoto.ru/images/2023/07/21/placemark.png',
                 iconImageSize: [33.33, 40],
                 iconImageOffset: [-33.33 / 2, -40 / 2],
               }}

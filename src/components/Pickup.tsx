@@ -14,13 +14,30 @@ interface PickupProps {
 const Pickup: React.FC<PickupProps> = ({ points }) => {
 
   const [selectedPoint, setSelectedPoint] = useState<string>(points[0]);
+  const [mapSize, setMapSize] = useState({ width: '100%', height: '320px' });
+
+  useEffect(() => {
+    const handleResize = () => {
+      const screenWidth = window.innerWidth;
+      const newWidth = screenWidth >= 1200 ? '952px' : '100%';
+      const newHeight = screenWidth >= 320 ? '320px' : '100%';
+      setMapSize({ width: newWidth, height: newHeight });
+    };
+
+    handleResize(); 
+
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
 
   const handlePointSelection = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSelectedPoint(event.target.value);
   };
 
   return (
-    <div>
+    <form>
       <div className='radio-buttons'>
         {points.map((point) => (
           <label key={point} className={`radio-label ${selectedPoint === point ? 'selected' : ''}`}>
@@ -36,7 +53,7 @@ const Pickup: React.FC<PickupProps> = ({ points }) => {
       </div>
       <div>
         <YMaps>
-          <Map defaultState={{ center: [55.997, 37.216], zoom: 15 }} options={{ suppressMapOpenBlock: true }} height="560px" width="952px">
+          <Map defaultState={{ center: [55.997, 37.216], zoom: 15 }} options={{ suppressMapOpenBlock: true }} style={{ width: mapSize.width, height: mapSize.height }}>
             <Placemark
               geometry={[55.997035, 37.216751]}
               options={{
@@ -59,7 +76,7 @@ const Pickup: React.FC<PickupProps> = ({ points }) => {
         </YMaps>
       </div>
       <button className="enter">Оформить заказ</button>
-    </div>
+    </form>
   );
 };
 

@@ -1,3 +1,8 @@
+form {
+  height: auto; 
+  grid-row: inherit;
+}
+
 .radio-label {
   font-size: 16px;
   font-weight: 400;
@@ -18,4 +23,9 @@
 .radio-buttons {
   display: flex;
   flex-wrap: wrap;
+}
+
+.map-container {
+  position: relative;
+  max-width: 952px;
 }

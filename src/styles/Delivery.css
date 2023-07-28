@@ -1,3 +1,10 @@
+form {
+    display: flex;
+    flex-direction: column; 
+    height: auto; 
+    grid-row: inherit;
+  }
+
 .section {
     display: grid;
     grid-template-columns: repeat(2, auto);
@@ -15,7 +22,6 @@ label {
 }
 
 input[type="text"].address,
-input[type="text"].comment,
 input[type="text"].phone,
 input[type="text"].initials {
     font-size: 16px;
@@ -34,11 +40,27 @@ input[type="text"].initials {
     width: 100%;
 }
 
-input[type="text"].comment {
-    height: 160px;
+input[type="text"]:focus {
+    border: 1px solid #222222;
 }
 
-input[type="text"]:focus {
+textarea.comment {
+    font-size: 16px;
+    font-weight: 400;
+    padding: 5px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    border-radius: 4px;
+    border: 1px solid #999999;
+    width: 100%;
+    resize: vertical;
+    /* Allow vertical resizing of textarea */
+    min-height: 100px;
+    /* Set minimum height */
+}
+
+
+textarea.comment:focus {
     border: 1px solid #222222;
 }
 
@@ -49,10 +71,9 @@ input[type="text"]:focus {
     height: 48px;
     color: #FFFFFF;
     margin-top: 24px;
-    position: sticky;
-    left: 77%;
     border: none;
     box-shadow: none;
+    align-self: flex-end;
 }
 
 .enter:hover {
@@ -66,10 +87,9 @@ input[type="text"]:focus {
     height: 48px;
     color: #999999;
     margin-top: 24px;
-    position: sticky;
-    left: 77%;
     border: none;
     box-shadow: none;
+    align-self: flex-end;
 }
 
 .error {
@@ -78,18 +98,3 @@ input[type="text"]:focus {
     margin-top: -8px;
     margin-bottom: 8px;
 }
-
-/* .input-wrapper {
-    position: relative;
-}
-
-.input.error  {
-    background-image: '../../public/alert.png';
-    background-repeat: no-repeat;
-    background-position: right center; 
-    background-size: 20px; 
-    color: red;
-    font-size: 12px;
-    margin-top: -8px;
-    margin-bottom: 8px;
-  } */

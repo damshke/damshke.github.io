@@ -2,10 +2,6 @@ import * as React from 'react';
 import { useState } from 'react';
 import '../styles/Delivery.css'
 
-// to do: 
-// кастомизация сообщения об ошибке 
-// адаптив
-
 interface Delivery {
     initials: string;
     phone: string;
@@ -45,7 +41,7 @@ const Delivery: React.FC = () => {
         const value = event.target.value;
         setPhone(value);
 
-        const regex = /^(\+7|7|8)?[\s\-]?\(?[489][0-9]{2}\)?[\s\-]?[0-9]{3}[\s\-]?[0-9]{2}[\s\-]?[0-9]{2}$/ ;
+        const regex = /^(\+7|7|8)?[\s\-]?\(?[489][0-9]{2}\)?[\s\-]?[0-9]{3}[\s\-]?[0-9]{2}[\s\-]?[0-9]{2}$/;
         const isValid = regex.test(value);
         setPhoneValid(isValid);
         setPhoneError(isValid ? '' : 'Введите корректный номер телефона')
@@ -55,9 +51,8 @@ const Delivery: React.FC = () => {
         setAddress(event.target.value);
     };
 
-    const handleCommentChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const handleCommentChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
         setComment(event.target.value);
-
     };
 
     const handleSubmit = () => {
@@ -128,11 +123,11 @@ const Delivery: React.FC = () => {
             </div>
             <div>
                 <label>Комментарий</label>
-                <input
-                    type="text"
+                <textarea
                     className="comment"
                     value={comment}
-                    onChange={handleCommentChange} />
+                    onChange={handleCommentChange}
+                />
                 {commentValid ? null : <span className="error">{commentError}</span>}
             </div>
             <button className={initials === '' || phone === '' || address === '' || comment === '' ? 'enter-disabled' : 'enter'} onClick={handleSubmit}>Оформить заказ</button>

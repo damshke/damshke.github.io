@@ -3,10 +3,6 @@ import { useEffect, useState } from 'react';
 import '../styles/Pickup.css';
 import { YMaps, Map, Placemark } from '@pbe/react-yandex-maps';
 
-// to do:
-// предусмотреть любое количество меток
-// убрать скролл на тач устройствах
-
 interface PickupProps {
   points: string[];
 }
@@ -24,7 +20,7 @@ const Pickup: React.FC<PickupProps> = ({ points }) => {
       setMapSize({ width: newWidth, height: newHeight });
     };
 
-    handleResize(); 
+    handleResize();
 
     window.addEventListener('resize', handleResize);
     return () => {
@@ -75,7 +71,9 @@ const Pickup: React.FC<PickupProps> = ({ points }) => {
           </Map>
         </YMaps>
       </div>
-      <button className="enter">Оформить заказ</button>
+      <div className='button-section'>
+        <button className="enter">Оформить заказ</button>
+      </div>
     </form>
   );
 };

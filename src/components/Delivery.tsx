@@ -34,7 +34,7 @@ const Delivery: React.FC = () => {
         const regex = /^[а-яА-Я\s-]+$/;
         const isValid = regex.test(value);
         setInitialsValid(isValid);
-        setInitialsError(isValid ? '' : 'В поле "ФИО" допустимы только кириллица, пробел и тире')
+        setInitialsError(isValid ? '' : 'Допустимы только кириллица, пробел и тире')
     };
 
     const handlePhoneChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -108,7 +108,7 @@ const Delivery: React.FC = () => {
                         placeholder='+7 (___) ___-__-__'
                         value={phone}
                         onChange={handlePhoneChange} />
-                    {phoneValid ? null : <span className="error">{phoneError}</span>}
+                        {phoneValid ? null : <span className="error">{phoneError}</span>}
                 </div>
             </div>
             <div>
@@ -130,7 +130,9 @@ const Delivery: React.FC = () => {
                 />
                 {commentValid ? null : <span className="error">{commentError}</span>}
             </div>
-            <button className={initials === '' || phone === '' || address === '' || comment === '' ? 'enter-disabled' : 'enter'} onClick={handleSubmit}>Оформить заказ</button>
+            <div className="button-section">
+                <button className={initials === '' || phone === '' || address === '' || comment === '' ? 'enter-disabled' : 'enter'} onClick={handleSubmit}>Оформить заказ</button>
+            </div>
         </form >
     );
 };

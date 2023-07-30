@@ -20,7 +20,7 @@ const Tabs: React.FC = () => {
     const points = ['Пункт выдачи заказов к317Ас1', 'Пункт выдачи заказов к331'];
 
     return (
-        <div>
+        <div className='container'>
             <h1>Выберите способ доставки</h1>
 
             <nav>
@@ -28,7 +28,7 @@ const Tabs: React.FC = () => {
                 <button onClick={() => handleTabClick(Tab.Pickup)} className={activeTab === Tab.Pickup ? 'active' : 'non-active'}>Самовывоз</button>
             </nav>
 
-            <div className='container'>
+            <div className='content-container'>
                 {activeTab === Tab.Delivery && (
                     <Delivery />
                 )}
@@ -38,7 +38,6 @@ const Tabs: React.FC = () => {
                 )}
             </div>
         </div>
-
     );
 };
 

@@ -105,6 +105,24 @@ textarea.comment:focus {
     margin-bottom: -8px;
 }
 
+.errorIcon {
+    background: url(https://ltdfoto.ru/images/2023/08/01/Vector1.png) no-repeat;
+}
+
+input {
+    position: relative;
+}
+
+i {
+    position: absolute;
+    right: 0;
+    top: 40px;
+    padding: 5px 5px;
+    transition: 0.3s;
+    width: 22px;
+    height: 22px;
+}
+
 @media (max-width: 1200px) {
 
     .section {

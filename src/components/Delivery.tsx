@@ -2,6 +2,10 @@ import * as React from 'react';
 import { useState } from 'react';
 import '../styles/Delivery.css'
 
+// to do
+// убрать скролл при ширине больше 320
+// добавить иконку восклицательного знака
+
 interface Delivery {
     initials: string;
     phone: string;
@@ -98,6 +102,7 @@ const Delivery: React.FC = () => {
                         value={initials}
                         onChange={handleInitialsChange}
                     />
+                    {initialsValid ? null : <i className="errorIcon" aria-hidden="true"></i>}
                     {initialsValid ? null : <span className="error">{initialsError}</span>}
                 </div>
                 <div>
@@ -108,7 +113,8 @@ const Delivery: React.FC = () => {
                         placeholder='+7 (___) ___-__-__'
                         value={phone}
                         onChange={handlePhoneChange} />
-                        {phoneValid ? null : <span className="error">{phoneError}</span>}
+                    {phoneValid ? null : <i className="errorIcon" aria-hidden="true"></i>}
+                    {phoneValid ? null : <span className="error">{phoneError}</span>}
                 </div>
             </div>
             <div>
@@ -119,6 +125,7 @@ const Delivery: React.FC = () => {
                     placeholder='Город, улица, дом'
                     value={address}
                     onChange={handleAddressChange} />
+                {addressValid ? null : <i className="errorIcon" aria-hidden="true"></i>}
                 {addressValid ? null : <span className="error">{addressError}</span>}
             </div>
             <div>

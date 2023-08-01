@@ -3,6 +3,9 @@ import { useEffect, useState } from 'react';
 import '../styles/Pickup.css';
 import { YMaps, Map, Placemark } from '@pbe/react-yandex-maps';
 
+// to do
+// установить правильные размеры карты
+
 interface PickupProps {
   points: string[];
 }
@@ -15,7 +18,7 @@ const Pickup: React.FC<PickupProps> = ({ points }) => {
   useEffect(() => {
     const handleResize = () => {
       const screenWidth = window.innerWidth;
-      const newWidth = screenWidth >= 1200 ? '952px' : '100%';
+      const newWidth = screenWidth >= 1200 ? '100%' : '100%';
       const newHeight = screenWidth >= 320 ? '320px' : '100%';
       setMapSize({ width: newWidth, height: newHeight });
     };

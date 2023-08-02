@@ -3,9 +3,6 @@ import { useEffect, useState } from 'react';
 import '../styles/Pickup.css';
 import { YMaps, Map, Placemark } from '@pbe/react-yandex-maps';
 
-// to do
-// установить правильные размеры карты
-
 interface PickupProps {
   points: string[];
 }
@@ -53,24 +50,18 @@ const Pickup: React.FC<PickupProps> = ({ points }) => {
       <div>
         <YMaps>
           <Map defaultState={{ center: [55.997, 37.216], zoom: 15 }} options={{ suppressMapOpenBlock: true }} style={{ width: mapSize.width, height: mapSize.height }}>
-            <Placemark
-              geometry={[55.997035, 37.216751]}
-              options={{
-                iconLayout: 'default#image',
-                iconImageHref: 'https://ltdfoto.ru/images/2023/07/21/placemark.png',
-                iconImageSize: [33.33, 40],
-                iconImageOffset: [-33.33 / 2, -40 / 2],
-              }}
-            />
-            <Placemark
-              geometry={[55.995831, 37.220695]}
-              options={{
-                iconLayout: 'default#image',
-                iconImageHref: 'https://ltdfoto.ru/images/2023/07/21/placemark.png',
-                iconImageSize: [33.33, 40],
-                iconImageOffset: [-33.33 / 2, -40 / 2],
-              }}
-            />
+          {points.map((point, index) => (
+              <Placemark
+                key={index}
+                geometry={[55.997035 + index * 0.001, 37.216751 + index * 0.001]}
+                options={{
+                  iconLayout: 'default#image',
+                  iconImageHref: 'https://ltdfoto.ru/images/2023/07/21/placemark.png',
+                  iconImageSize: [33.33, 40],
+                  iconImageOffset: [-33.33 / 2, -40 / 2],
+                }}
+              />
+            ))}
           </Map>
         </YMaps>
       </div>

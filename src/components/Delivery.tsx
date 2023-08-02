@@ -2,10 +2,6 @@ import * as React from 'react';
 import { useState } from 'react';
 import '../styles/Delivery.css'
 
-// to do
-// убрать скролл при ширине больше 320
-// добавить иконку восклицательного знака
-
 interface Delivery {
     initials: string;
     phone: string;

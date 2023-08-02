@@ -6,11 +6,12 @@ body {
 .App {
   display: flex;
   justify-content: center;
+  min-width: 320px;
 }
 
-@media (min-width: 320px) {
+@media (max-width: 320px) {
   .App {
-    overflow-x: hidden;
+    overflow-x: auto;
   }
 }
 
@@ -21,4 +22,11 @@ body {
   padding: 0 16px;
   display: flex;
   flex-direction: column; 
+}
+
+@media (max-width: 320px) {
+  .container {
+    width: 320px;
+    overflow-x: auto;
+  }
 }

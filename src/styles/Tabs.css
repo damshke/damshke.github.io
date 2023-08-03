@@ -30,6 +30,6 @@ nav {
 .content-container {
     background-color: #FFFFFF;
     padding: 50px;
-    max-height: fit-content;
+    max-height: max-content;
     box-sizing: border-box;
 }

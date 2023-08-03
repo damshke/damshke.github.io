@@ -1,59 +1,76 @@
-import * as React from 'react';
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import '../styles/Pickup.css';
-import { YMaps, Map, Placemark } from '@pbe/react-yandex-maps';
+import { YMaps, Map, Placemark } from '@pbe/react-yandex-maps'
+
+interface Point {
+  name: string;
+  coordinates: [number, number];
+}
 
 interface PickupProps {
-  points: string[];
+  points: Point[];
 }
 
 const Pickup: React.FC<PickupProps> = ({ points }) => {
-
-  const [selectedPoint, setSelectedPoint] = useState<string>(points[0]);
-  const [mapSize, setMapSize] = useState({ width: '100%', height: '320px' });
+  const [selectedPoint, setSelectedPoint] = useState<Point>(points[0]);
+  const mapRef = useRef<any>();
 
   useEffect(() => {
-    const handleResize = () => {
-      const screenWidth = window.innerWidth;
-      const newWidth = screenWidth >= 1200 ? '100%' : '100%';
-      const newHeight = screenWidth >= 320 ? '320px' : '100%';
-      setMapSize({ width: newWidth, height: newHeight });
-    };
+    if (mapRef.current && points.length > 0) {
+      const bounds = points.reduce(
+        (accumulator, point) => {
+          const [lat, lon] = point.coordinates;
+          return [
+            [Math.min(accumulator[0][0], lat), Math.min(accumulator[0][1], lon)],
+            [Math.max(accumulator[1][0], lat), Math.max(accumulator[1][1], lon)],
+          ];
+        },
+        [[Infinity, Infinity], [-Infinity, -Infinity]]
+      );
 
-    handleResize();
-
-    window.addEventListener('resize', handleResize);
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []);
+      const map = mapRef.current;
+      map.setBounds(bounds, {
+        checkZoomRange: true,
+        zoomMargin: 40,
+      });
+    }
+  }, [points]);
 
   const handlePointSelection = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setSelectedPoint(event.target.value);
+    const selectedPointName = event.target.value;
+    const selectedPoint = points.find((point) => point.name === selectedPointName);
+    if (selectedPoint) {
+      setSelectedPoint(selectedPoint);
+    }
   };
 
   return (
     <form>
       <div className='radio-buttons'>
         {points.map((point) => (
-          <label key={point} className={`radio-label ${selectedPoint === point ? 'selected' : ''}`}>
+          <label key={point.name} className={`radio-label ${selectedPoint.name === point.name ? 'selected' : ''}`}>
             <input
-              type="radio"
-              value={point}
-              checked={selectedPoint === point}
+              type='radio'
+              value={point.name}
+              checked={selectedPoint.name === point.name}
               onChange={handlePointSelection}
             />
-            {point}
+            {point.name}
           </label>
         ))}
       </div>
       <div>
         <YMaps>
-          <Map defaultState={{ center: [55.997, 37.216], zoom: 15 }} options={{ suppressMapOpenBlock: true }} style={{ width: mapSize.width, height: mapSize.height }}>
-          {points.map((point, index) => (
+          <Map
+            instanceRef={mapRef}
+            defaultState={{ center: selectedPoint.coordinates, zoom: 15 }}
+            options={{ suppressMapOpenBlock: true }}
+            style={{ width: '100%', height: '320px' }}
+          >
+            {points.map((point) => (
               <Placemark
-                key={index}
-                geometry={[55.997035 + index * 0.001, 37.216751 + index * 0.001]}
+                key={point.name}
+                geometry={point.coordinates}
                 options={{
                   iconLayout: 'default#image',
                   iconImageHref: 'https://ltdfoto.ru/images/2023/07/21/placemark.png',
@@ -66,7 +83,7 @@ const Pickup: React.FC<PickupProps> = ({ points }) => {
         </YMaps>
       </div>
       <div className='button-section'>
-        <button className="enter">Оформить заказ</button>
+        <button className='enter'>Оформить заказ</button>
       </div>
     </form>
   );

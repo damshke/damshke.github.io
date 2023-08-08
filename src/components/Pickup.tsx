@@ -7,16 +7,27 @@ interface Point {
   coordinates: [number, number];
 }
 
-interface PickupProps {
-  points: Point[];
+interface Point {
+  name: string;
+  coordinates: [number, number]; 
 }
 
-const Pickup: React.FC<PickupProps> = ({ points }) => {
+const points: Point[] = [
+  { name: 'Пункт выдачи заказов жилой комплекс Жемчужина Зеленограда', coordinates: [55.968121, 37.152640] },
+  { name: 'Пункт выдачи заказов 14 микрорайон', coordinates: [55.989658, 37.154159] },
+  { name: 'Пункт выдачи заказов к355А', coordinates: [55.994083, 37.224617] },
+];
+
+const Pickup: React.FC = () => {
+
   const [selectedPoint, setSelectedPoint] = useState<Point>(points[0]);
-  const mapRef = useRef<any>();
+  const [isMapLoaded, setMapLoaded] = useState(false);
+  const mapRef = useRef<ymaps.Map | undefined>(undefined);
 
   useEffect(() => {
-    if (mapRef.current && points.length > 0) {
+    console.log('before if');
+    if (mapRef.current && isMapLoaded && points.length > 0) {
+      console.log('if');
       const bounds = points.reduce(
         (accumulator, point) => {
           const [lat, lon] = point.coordinates;
@@ -27,14 +38,15 @@ const Pickup: React.FC<PickupProps> = ({ points }) => {
         },
         [[Infinity, Infinity], [-Infinity, -Infinity]]
       );
+      console.log('a');
 
       const map = mapRef.current;
       map.setBounds(bounds, {
         checkZoomRange: true,
-        zoomMargin: 40,
+        zoomMargin: [40],
       });
     }
-  }, [points]);
+  }, [isMapLoaded]);
 
   const handlePointSelection = (event: React.ChangeEvent<HTMLInputElement>) => {
     const selectedPointName = event.target.value;
@@ -66,6 +78,7 @@ const Pickup: React.FC<PickupProps> = ({ points }) => {
             defaultState={{ center: selectedPoint.coordinates, zoom: 15 }}
             options={{ suppressMapOpenBlock: true }}
             style={{ width: '100%', height: '320px' }}
+            onLoad={() => setMapLoaded(true)}
           >
             {points.map((point) => (
               <Placemark

@@ -1,6 +1,8 @@
 import React, { useEffect, useState, useRef } from 'react';
 import '../styles/Pickup.css';
 import { YMaps, Map, Placemark } from '@pbe/react-yandex-maps'
+/* @ts-ignore next-line */
+import Icon from "../pin.svg"
 
 interface Point {
   name: string;
@@ -25,9 +27,7 @@ const Pickup: React.FC = () => {
   const mapRef = useRef<ymaps.Map | undefined>(undefined);
 
   useEffect(() => {
-    console.log('before if');
     if (mapRef.current && isMapLoaded && points.length > 0) {
-      console.log('if');
       const bounds = points.reduce(
         (accumulator, point) => {
           const [lat, lon] = point.coordinates;
@@ -38,7 +38,6 @@ const Pickup: React.FC = () => {
         },
         [[Infinity, Infinity], [-Infinity, -Infinity]]
       );
-      console.log('a');
 
       const map = mapRef.current;
       map.setBounds(bounds, {
@@ -86,7 +85,7 @@ const Pickup: React.FC = () => {
                 geometry={point.coordinates}
                 options={{
                   iconLayout: 'default#image',
-                  iconImageHref: 'https://ltdfoto.ru/images/2023/07/21/placemark.png',
+                  iconImageHref: Icon,
                   iconImageSize: [33.33, 40],
                   iconImageOffset: [-33.33 / 2, -40 / 2],
                 }}

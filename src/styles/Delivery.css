@@ -106,17 +106,17 @@ textarea.comment:focus {
 }
 
 .errorIcon {
-    background: url(https://ltdfoto.ru/images/2023/08/01/Vector1.png) no-repeat;
+    background: no-repeat;
 }
 
 input {
     position: relative;
 }
 
-i {
+img {
     position: absolute;
     right: 0;
-    top: 40px;
+    top: 35px;
     padding: 5px 5px;
     transition: 0.3s;
     width: 22px;

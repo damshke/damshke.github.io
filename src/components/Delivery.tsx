@@ -1,6 +1,9 @@
 import * as React from 'react';
 import { useState } from 'react';
+import InputMask from 'react-input-mask';
 import '../styles/Delivery.css'
+/* @ts-ignore next-line */
+import ErrorIcon from "../error.svg"
 
 interface Delivery {
     initials: string;
@@ -37,12 +40,13 @@ const Delivery: React.FC = () => {
         setInitialsError(isValid ? '' : 'Допустимы только кириллица, пробел и тире')
     };
 
+
     const handlePhoneChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        const value = event.target.value;
-        setPhone(value);
+        const formattedValue = event.target.value.replace(/[^0-9]/g, '');
+        setPhone(formattedValue);
 
         const regex = /^(\+7|7|8)?[\s\-]?\(?[489][0-9]{2}\)?[\s\-]?[0-9]{3}[\s\-]?[0-9]{2}[\s\-]?[0-9]{2}$/;
-        const isValid = regex.test(value);
+        const isValid = regex.test(formattedValue);
         setPhoneValid(isValid);
         setPhoneError(isValid ? '' : 'Введите корректный номер телефона')
     };
@@ -98,19 +102,28 @@ const Delivery: React.FC = () => {
                         value={initials}
                         onChange={handleInitialsChange}
                     />
-                    {initialsValid ? null : <i className="errorIcon" aria-hidden="true"></i>}
+                    {initialsValid ? null : <img src={ErrorIcon} alt="Error Icon" />}
                     {initialsValid ? null : <span className="error">{initialsError}</span>}
                 </div>
                 <div>
                     <label>Телефон</label>
-                    <input
-                        type="text"
-                        className="phone"
-                        placeholder='+7 (___) ___-__-__'
+                    <InputMask
+                        mask="+7 (999) 999-99-99"
                         value={phone}
-                        onChange={handlePhoneChange} />
-                    {phoneValid ? null : <i className="errorIcon" aria-hidden="true"></i>}
-                    {phoneValid ? null : <span className="error">{phoneError}</span>}
+                        maskChar=" "
+                        onChange={handlePhoneChange}
+                    >
+                        <input
+                            type="text"
+                            className="phone"
+                            placeholder="+7 (___) ___-__-__"
+                            value={phone}
+                            onChange={handlePhoneChange}
+                        />
+                    </InputMask>
+
+                    {phoneValid ? null : <img src={ErrorIcon} alt="Error Icon" />}
+                    {phoneValid ? null : <span className="error">{initialsError}</span>}
                 </div>
             </div>
             <div>

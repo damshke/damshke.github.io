@@ -34,7 +34,7 @@ const Delivery: React.FC = () => {
         const value = event.target.value;
         setInitials(value);
 
-        const regex = /^[а-яА-Я\s-]+$/;
+        const regex = /^[а-яА-Яё\s-]+$/;
         const isValid = regex.test(value);
         setInitialsValid(isValid);
         setInitialsError(isValid ? '' : 'Допустимы только кириллица, пробел и тире')
@@ -123,7 +123,7 @@ const Delivery: React.FC = () => {
                     </InputMask>
 
                     {phoneValid ? null : <img src={ErrorIcon} alt="Error Icon" />}
-                    {phoneValid ? null : <span className="error">{initialsError}</span>}
+                    {phoneValid ? null : <span className="error">{phoneError}</span>}
                 </div>
             </div>
             <div>

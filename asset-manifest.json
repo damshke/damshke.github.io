@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/test_task_greensight/static/css/main.4984b9f5.css",
+    "main.js": "/test_task_greensight/static/js/main.48de5c3c.js",
+    "static/media/pin.svg": "/test_task_greensight/static/media/pin.5c606af65fbb927050c0fed232edb413.svg",
+    "static/media/error.svg": "/test_task_greensight/static/media/error.71ba1e4b1a4a1d37da75fd5e3d37b2b5.svg",
+    "index.html": "/test_task_greensight/index.html",
+    "main.4984b9f5.css.map": "/test_task_greensight/static/css/main.4984b9f5.css.map",
+    "main.48de5c3c.js.map": "/test_task_greensight/static/js/main.48de5c3c.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.4984b9f5.css",
+    "static/js/main.48de5c3c.js"
+  ]
+}

@@ -75,7 +75,8 @@ const Pickup: React.FC = () => {
           <Map
             instanceRef={mapRef}
             defaultState={{ center: selectedPoint.coordinates, zoom: 15 }}
-            options={{ suppressMapOpenBlock: true }}
+            behavior={{ drag: false }}
+            options={{ suppressMapOpenBlock: true,  }}
             style={{ width: '100%', height: '320px' }}
             onLoad={() => setMapLoaded(true)}
           >
